@@ -83,15 +83,14 @@
         </span>
       </s-table>
 
-      <create-form
+      <user-form
         ref="createModal"
         :visible="visible"
         :loading="confirmLoading"
         :model="mdl"
         @cancel="handleCancel"
         @ok="handleOk"
-      />
-      <step-by-step-modal ref="modal" @ok="handleOk"/>
+      ></user-form>
     </a-card>
   </page-header-wrapper>
 </template>
@@ -99,9 +98,8 @@
 <script>
 import moment from 'moment'
 import { STable, Ellipsis } from '@/components'
-import CreateForm from '@/views/list/modules/CreateForm'
-import StepByStepModal from '@/views/list/modules/StepByStepModal'
 import { getUserList } from '@/api/manage'
+import userForm from './modules/userForm'
 
 const columns = [
   {
@@ -160,8 +158,7 @@ export default {
   components: {
     STable,
     Ellipsis,
-    CreateForm,
-    StepByStepModal
+    userForm
   },
   data () {
     this.columns = columns

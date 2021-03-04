@@ -2,6 +2,8 @@ import request from '@/utils/request'
 
 const api = {
   user: '/user',
+  saveUser: '/user/saveUser',
+  checkPhone: '/user/findPhoneNum',
   role: '/role',
   service: '/service',
   permission: '/permission',
@@ -16,6 +18,21 @@ export function getUserList (parameter) {
     url: api.user,
     method: 'get',
     params: parameter
+  })
+}
+
+export function saveUser (parameter) {
+  return request({
+    url: api.saveUser,
+    method: 'post',
+    params: parameter
+  })
+}
+
+export function checkPhone (parameter) {
+  return request({
+    url: api.checkPhone + '/' + parameter,
+    method: 'get'
   })
 }
 
